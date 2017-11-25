@@ -250,7 +250,7 @@ def SEND_MESSAGE(op):
                     wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
                     wait['ROM'][msg.to] = {}
                     print wait
-		if msg.text == "傑克森⚫皮爾斯已被退出群組":
+		if msg.text == "妮琪⚫皮爾斯已被退出群組":
                     sendMessage(msg.to, "invite:")
                     try:
                         del wait['readPoint'][msg.to]
@@ -262,7 +262,7 @@ def SEND_MESSAGE(op):
                     wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
                     wait['ROM'][msg.to] = {}
                     print wait
-		if msg.text == "莉娜⚫皮爾斯已被退出群組":
+		if msg.text == "傑克森⚫皮爾斯已被退出群組":
                     sendMessage(msg.to, "invite:")
                     try:
                         del wait['readPoint'][msg.to]
