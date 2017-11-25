@@ -147,7 +147,7 @@ def SEND_MESSAGE(op):
                     if group.invitee is None: md += "\n群組成員: " + str(len(group.members)) + "人\n\n正在邀請中: 0人"
                     else: md += "\n群組成員: " + str(len(group.members)) + "人\n正在邀請: " + str(len(group.invitee)) + "人"
                     sendMessage(msg.to,md)
-                if "gn:" in msg.text:
+                if "gname:" in msg.text:
                     key = msg.text[22:]
                     group = client.getGroup(msg.to)
                     group.name = key
@@ -238,8 +238,32 @@ def SEND_MESSAGE(op):
                     sendMessage(msg.to, "Current time is" + datetime.datetime.today().strftime('%Y年%m月%d日 %H:%M:%S') + "is")
                 if msg.text == "gift":
                     sendMessage(msg.to, text="gift sent", contentMetadata=None, contentType=9)
-                if msg.text == "set":
-                    sendMessage(msg.to, "開始記錄已讀不回 ♪\n「tes」小心喔 已讀不回者 ♪")
+                if msg.text == "艾登⚫皮爾斯已被退出群組":
+                    sendMessage(msg.to, "invite:")
+                    try:
+                        del wait['readPoint'][msg.to]
+                        del wait['readMember'][msg.to]
+                    except:
+                        pass
+                    wait['readPoint'][msg.to] = msg.id
+                    wait['readMember'][msg.to] = ""
+                    wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+                    wait['ROM'][msg.to] = {}
+                    print wait
+		if msg.text == "傑克森⚫皮爾斯已被退出群組":
+                    sendMessage(msg.to, "invite:")
+                    try:
+                        del wait['readPoint'][msg.to]
+                        del wait['readMember'][msg.to]
+                    except:
+                        pass
+                    wait['readPoint'][msg.to] = msg.id
+                    wait['readMember'][msg.to] = ""
+                    wait['setTime'][msg.to] = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+                    wait['ROM'][msg.to] = {}
+                    print wait
+		if msg.text == "莉娜⚫皮爾斯已被退出群組":
+                    sendMessage(msg.to, "invite:")
                     try:
                         del wait['readPoint'][msg.to]
                         del wait['readMember'][msg.to]
