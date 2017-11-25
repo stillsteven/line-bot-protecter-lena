@@ -60,7 +60,7 @@ tracer.addOpInterrupt(17,NOTIFIED_ACCEPT_GROUP_INVITATION)
 
 def NOTIFIED_KICKOUT_FROM_GROUP(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param3).displayName + " 活該 被踢\n(*´･ω･*)")
+        sendMessage(op.param1, client.getContact(op.param3).displayName + "已被退出群組")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_KICKOUT_FROM_GROUP\n\n")
@@ -70,7 +70,7 @@ tracer.addOpInterrupt(19,NOTIFIED_KICKOUT_FROM_GROUP)
 
 def NOTIFIED_LEAVE_GROUP(op):
     try:
-        sendMessage(op.param1, client.getContact(op.param2).displayName + " 再見\n(*´･ω･*)")
+        sendMessage(op.param1, client.getContact(op.param2).displayName + "已退出群組")
     except Exception as e:
         print e
         print ("\n\nNOTIFIED_LEAVE_GROUP\n\n")
@@ -175,7 +175,7 @@ def SEND_MESSAGE(op):
                     key = msg.text[5:]
                     client.kickoutFromGroup(msg.to, [key])
                     contact = client.getContact(key)
-                    sendMessage(msg.to, ""+contact.displayName+"處刑完成")
+                    sendMessage(msg.to, ""+contact.displayName+" 敬酒不吃 吃罰酒")
                 if "nk:" in msg.text:
                     key = msg.text[3:]
                     group = client.getGroup(msg.to)
@@ -183,10 +183,10 @@ def SEND_MESSAGE(op):
                     Mids = [contact.mid for contact in group.members]
                     if key in Names:
                         kazu = Names.index(key)
-                        sendMessage(msg.to, "要解決你 一刀就夠了")
+                        sendMessage(msg.to, "敬酒不吃")
                         client.kickoutFromGroup(msg.to, [""+Mids[kazu]+""])
                         contact = client.getContact(Mids[kazu])
-                        sendMessage(msg.to, ""+contact.displayName+" 處刑完成")
+                        sendMessage(msg.to, ""+contact.displayName+" 吃罰酒")
                     else:
                         sendMessage(msg.to, "錯誤 查無此人 提示：不能標人 名字去他人姓名欄複製")
                 if msg.text == "cancel":
